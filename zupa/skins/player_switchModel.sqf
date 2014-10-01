@@ -111,8 +111,17 @@ if(_secweapon != (secondaryWeapon _newUnit) && _secweapon != "") then {
 	_newUnit addWeapon _secweapon;		
 };
 
+if(isNil "_cashMoney")then{_cashMoney = 0;};
+if(isNil "_bankMoney")then{_bankMoney = 0;};
+if(isNil "_cashMoney2")then{_cashMoney2 = 0;};
+if(isNil "_bankMoney2")then{_bankMoney2 = 0;};
+
 _newUnit setVariable ["cashMoney",_cashMoney,true];
 _newUnit setVariable ["bankMoney",_bankMoney];
+
+_newUnit setVariable ["headShots",_cashMoney2,true];
+_newUnit setVariable ["bank",_bankMoney2];
+
 _newUnit setVariable["CharacterID",_cId,true];
 
 _switchUnit = {
@@ -181,10 +190,7 @@ if( !(_x in _zupaMags))then {
 
 //player setVariable ["bodyName",dayz_playerName,true]; //Outcommit (Issue #991) - Also removed in DayZ Mod 1.8
 
-if(isNil "_cashMoney")then{_cashMoney = 0;};
-if(isNil "_bankMoney")then{_bankMoney = 0;};
-if(isNil "_cashMoney2")then{_cashMoney2 = 0;};
-if(isNil "_bankMoney2")then{_bankMoney2 = 0;};
+
 
 player setVariable ["cashMoney",_cashMoney,true];
 player setVariable ["bankMoney",_bankMoney];
