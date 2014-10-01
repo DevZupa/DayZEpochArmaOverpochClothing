@@ -2,7 +2,6 @@
 player removeAction s_clothes;
 s_clothes = -1;
 
-private["_body","_result"];
 _body = _this select 3;
 _model = typeOf _body;
 
@@ -125,6 +124,7 @@ if (_isModel &&  !(_model in ["Survivor2_DZ"])) then {
 		private["_name","_method"];
 		_name = _body getVariable["bodyName","unknown"];
 		_method = _body getVariable["deathType","unknown"];
+		_money = _body getVariable["cashMoney",0];
 		_class = "Survivor2_DZ";
 		_position = getPosATL _body;
 		_dir = getDir _body;
@@ -201,5 +201,6 @@ if (_isModel &&  !(_model in ["Survivor2_DZ"])) then {
 		_newUnit setDamage 1;
 		_newUnit setVariable["bodyName",_name,true];
 		_newUnit setVariable["deathType",_method,true];
+		_newUnit setVariable["cashMoney",_money,true];
 	} else {cutText ["You need a free slot to take clothing.", "PLAIN DOWN"];};
 };

@@ -1,12 +1,6 @@
-// by Boyd
-#include "definitions.sqf"
-disableSerialization;
-
-
 Men_Clothing = [];
-
 _playerItems = magazines player;
-
+lbClear 20014;
 if( "Skin_FR_OHara_DZ" in _playerItems)then{
 Men_Clothing  = Men_Clothing + Clothing1;};
 if("Skin_Soldier1_DZ" in _playerItems)then{
@@ -29,11 +23,8 @@ if("Skin_Survivor2_DZ" in _playerItems)then{
 Men_Clothing  = Men_Clothing+ Clothing10;};
 if("Skin_FR_Rodriguez_DZ" in _playerItems)then{
 Men_Clothing  = Men_Clothing + Clothing11;};
-
 // Overwatch
-
 //// hero
-
 if("Skin_Drake_Light_DZ" in _playerItems)then{
 Men_Clothing  = Men_Clothing + Clothing12;};
 if("Skin_Soldier_Sniper_PMC_DZ" in _playerItems)then{
@@ -53,7 +44,6 @@ Men_Clothing  = Men_Clothing + Clothing19;};
 if("Skin_TK_INS_Warlord_EP1_DZ" in _playerItems)then{
 Men_Clothing  = Men_Clothing+ Clothing20;};
 /// bandit
-
 if("Skin_Bandit1_DZ" in _playerItems)then{
 Men_Clothing  = Men_Clothing+ Clothing21;};
 if("Skin_Bandit2_DZ" in _playerItems)then{
@@ -119,21 +109,7 @@ Men_Clothing  = Men_Clothing +  ["Rocker4_DZ"];
 if("Skin_SurvivorW3_DZ" in _playerItems)then{
 Men_Clothing  = Men_Clothing +  ["SurvivorW3_DZ"];
 };
-
-//systemChat "Done";
-
-
-_display = findDisplay SKINS_DIALOG;
-_unitlist = _display displayCtrl SKINS_UNITLIST;
-_queuelist = _display displayCtrl SKINS_QUEUE;
-
-_queuelist ctrlSetText format[""];
-
-
-_weaponstring = "";
+systemChat "Items Loaded";
 {
-	_displname = getText (configFile >> "CfgVehicles" >> _x >> "displayName");
-	_picture = getText (configFile >> "CfgVehicles" >> _x >> "portrait");
-	_weaponstring = format["%1",_displname,_picture];
-	_unitlist lbAdd _weaponstring;
+	lbAdd [20014, _x];
 } foreach Men_Clothing;
