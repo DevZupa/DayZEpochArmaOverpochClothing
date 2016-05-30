@@ -64,7 +64,8 @@ _newUnit 	setDir _dir;
 
 //Clear New Character
 {_newUnit removeMagazine _x;} count  magazines _newUnit;
-removeAllWeapons _newUnit;	
+removeAllWeapons _newUnit;
+removeAllItems _newUnit;
 
 //Equip New Charactar
 {
