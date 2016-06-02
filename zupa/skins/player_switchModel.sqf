@@ -214,5 +214,7 @@ if (_ismelee == "true") then {
 	call dayz_meleeMagazineCheck; 
 };
 
+player setVariable ["changedClothingAt", diag_tickTime];
+
 //reveal the same objects we do on login
 {player reveal _x} count (nearestObjects [getPosATL player, dayz_reveal, 50]);

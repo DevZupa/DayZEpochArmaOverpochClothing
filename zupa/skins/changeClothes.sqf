@@ -1,5 +1,15 @@
 ﻿_sel =  _this select 0;
-_unittype = Men_Clothing select _sel;		
+_unittype = Men_Clothing select _sel;	
+
+_lastChanged = player getVariable ["changedClothingAt" ,0];
+
+if( _lastChanged != 0 && (diag_tickTime - 60 < _lastChanged) ) exitWith {
+	cutText ["\n\nYou need to wait at least a minut before changing clothes again.", "PLAIN DOWN"];				
+	CloseDialog 0;
+	CloseDialog 1;
+	(findDisplay 106) closeDisplay 1;
+};
+
 if (!isNull (unitBackpack player)) then {
 	cutText ["You cannot change your Skin while wearing a backpack", "PLAIN"];
 }else{											
